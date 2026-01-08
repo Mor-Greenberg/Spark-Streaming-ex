@@ -29,11 +29,9 @@ def main():
             producer.send(TOPIC, row)
             sent += 1
 
-            # slow down a bit so we can see streaming behavior
-            if sent % 200 == 0:
-                producer.flush()
-                print(f"sent {sent} records...")
-                time.sleep(0.2)
+         
+            producer.flush()
+            print(f"sent {sent} records...")
 
     producer.flush()
     producer.close()
